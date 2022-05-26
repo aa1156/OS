@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.0)
+
+project(HttpServer)
+
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
+
+include_directories(src)
+
+set(SRC_DIR src)
+set(TEST_DIR test)
+
+add_executable(SimpleHttpServer
+    ${SRC_DIR}/main.cpp
+  
+)
+
+add_executable(HttpServer
+    ${TEST_DIR}/main.cpp
+  
+)
+
+target_link_libraries(HttpServer PRIVATE Threads::Threads)
